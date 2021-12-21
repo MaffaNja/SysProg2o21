@@ -7,16 +7,13 @@
 sig_atomic_t Exit = 0;
 
 
-void Handler(int sigNum)
-{
-    Exit = 1; 
+void Handler(int sigNum) {
+    Exit = 1;
 }
 
 
-int main() 
-{
-    if(daemon(false, true) == 0)
-    {
+int main() {
+    if (daemon(false, true) == 0) {
         printf("%d\n", getpid());
 
         fclose(stdin);
@@ -25,8 +22,7 @@ int main()
 
         signal(SIGURG, Handler);
 
-        while(Exit == 0)
-        {
+        while (Exit == 0) {
             sleep(100);
         }
     }

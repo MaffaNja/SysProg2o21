@@ -24,8 +24,7 @@ int main(void) {
     signal(SIGUSR2, usr2_handler);
     signal(SIGTERM, term_handler);
 
-    while (1) {
-        ;
+    while (1) { ;
     }
 
     return 0;
